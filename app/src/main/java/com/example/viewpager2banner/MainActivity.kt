@@ -11,12 +11,14 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private  var vpAdapter:FragmentStateAdapter? = null
+    //viewpager2 어댑터  FragementStateAdapter 상속받는다
+    //FragementStateAdapter : 프래그먼트 갯수가 일정치 않거나 많을 경우 사용 하면 좋음
+    private var vpAdapter:FragmentStateAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 
         // vpAdapter CustomPagerAdapter 초기화해서 현재액티비티 전달
         vpAdapter = CustomPagerAdapter(this)
@@ -25,11 +27,8 @@ class MainActivity : AppCompatActivity() {
         indicator.setViewPager(viewpage2)
 
 
-
     }
-
-
-
+    
     class CustomPagerAdapter(fa:FragmentActivity):FragmentStateAdapter(fa){
         private val PAGENUMBER = 4
 
