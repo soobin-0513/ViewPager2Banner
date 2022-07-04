@@ -16,21 +16,22 @@ class MainActivity : AppCompatActivity() {
     private var vpAdapter:FragmentStateAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // vpAdapter CustomPagerAdapter 초기화해서 현재액티비티 전달
+        // vpAdapter CustomPagerAdapter 초기화해서 객체 만들어서 현재 액티비티 전달
         vpAdapter = CustomPagerAdapter(this)
         viewpage2.adapter =vpAdapter
+
         //뷰페이져 참조하기
         indicator.setViewPager(viewpage2)
 
 
     }
-    
+
     class CustomPagerAdapter(fa:FragmentActivity):FragmentStateAdapter(fa){
         private val PAGENUMBER = 4
+
 
         override fun getItemCount(): Int {
            return PAGENUMBER
@@ -38,6 +39,8 @@ class MainActivity : AppCompatActivity() {
 
         override fun createFragment(position: Int): Fragment {
             return when(position){
+                //newInstance 정의된 함수 사용
+                //각 페이지 마다 해당 내용 불러오는것을 정의하기
                  0-> TestFragment.newInstance(R.raw.bin1,"page00")
                  1-> TestFragment.newInstance(R.raw.bin2,"page01")
                  2-> TestFragment.newInstance(R.raw.bin3,"page02")

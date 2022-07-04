@@ -40,6 +40,7 @@ class TestFragment : Fragment() {
         textView2.text = text
     }
 
+
     companion object{
         //외부에서 이미지랑 텍스트 가져오는 파라미터
         fun newInstance(image:Int, text:String) =
